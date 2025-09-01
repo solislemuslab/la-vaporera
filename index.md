@@ -10,13 +10,13 @@ nav_order: 1
 
 
 
-# Check out other relevant events:
+### Check out other relevant events:
 
-## Celebrating Latinx contributions in STEAM!
+**Celebrating Latinx contributions in STEAM!**
 
 The "Celebrating Latinx contributions in STEAM" symposium took place in October 2023 and October 2024 in the DeLuca forum in the [Discovery Building](https://goo.gl/maps/AeCdxxd4Qx1BGH9k6) with contributions from campus community about Latinx contributions in STEAM. 
 
-## Don't miss El Zoominario!
+**Don't miss El Zoominario!**
 
 Check out the monthly seminar series [El Zoominario](https://solislemuslab.github.io/el-zoominario/) with talks in English and Spanish, all recorded and avaliable 
 in the [El Zoominario YouTube playlist](https://www.youtube.com/playlist?list=PL1AfUDnwvYbOA9rfrvyA2nR9SR0VYbklx). 
