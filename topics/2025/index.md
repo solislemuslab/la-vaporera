@@ -1,7 +1,8 @@
 ---
 layout: default
-title: About
-parent: 2025
+title: 2025
+nav_order: 1
+has_toc: false
 ---
 
 # La Vaporera: Ciencia y Arte en Español
