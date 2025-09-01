@@ -9,16 +9,15 @@ footer_content: "Copyright Solis-Lemus lab &copy; 2025. Distributed by an <a hre
 callouts_level: quiet # or loud
 callouts:
   highlight:
-    color: yellow
+    color: purple
   important:
-    title: Important
     color: blue
   new:
     title: New
     color: green
   note:
     title: Note
-    color: purple
+    color: yellow
   warning:
     title: Warning
     color: red

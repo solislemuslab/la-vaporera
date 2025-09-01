@@ -9,7 +9,7 @@ nav_order: 1
 "La Vaporera: Ciencia y Arte en Español" es un simposio organizando como parte del [Wisconsin Science Festival](https://www.wisconsinsciencefest.org/) para promocionar la ciencia y el arte en español. Su nombre viene de STEAM (Science, Technology, Engineering, Arts, Math) que significa "vapor" en español.
 
 
-{: .note }
+{: .highlight }
 Check out other relevant events:
 
 **Celebrating Latinx contributions in STEAM!**
