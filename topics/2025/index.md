@@ -1,7 +1,7 @@
 ---
 layout: default
 title: 2025
-nav_order: 1
+nav_order: 2
 has_toc: false
 ---
 
@@ -36,7 +36,5 @@ El Foro DeLuca está en el 1er piso del [Discovery Building](https://goo.gl/maps
 
 Durante las charlas relámpago, se va a jugar el juego de Lotería que es la versión es español del juego Bingo. Cada asistente recibirá una tarjeta con palabras clave que tiene que identificar de las charlas relámpago. El ganador recibirá una artesanía de Yucatán, México.
 
-| Speaker |	Title |	Department |
-| :--- | :--- | :---  | 
 
-[Upcoming!]
+[Lista próximamente!]
