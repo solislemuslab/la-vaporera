@@ -9,15 +9,13 @@ nav_order: 1
 "La Vaporera: Ciencia y Arte en Español" es un simposio organizando como parte del [Wisconsin Science Festival](https://www.wisconsinsciencefest.org/) para promocionar la ciencia y el arte en español. Su nombre viene de STEAM (Science, Technology, Engineering, Arts, Math) que significa "vapor" en español.
 
 
-
-### Check out other relevant events:
+{: .note }
+Check out other relevant events:
 
 **Celebrating Latinx contributions in STEAM!**
-
 The "Celebrating Latinx contributions in STEAM" symposium took place in October 2023 and October 2024 in the DeLuca forum in the [Discovery Building](https://goo.gl/maps/AeCdxxd4Qx1BGH9k6) with contributions from campus community about Latinx contributions in STEAM. 
 
 **Don't miss El Zoominario!**
-
 Check out the monthly seminar series [El Zoominario](https://solislemuslab.github.io/el-zoominario/) with talks in English and Spanish, all recorded and avaliable 
 in the [El Zoominario YouTube playlist](https://www.youtube.com/playlist?list=PL1AfUDnwvYbOA9rfrvyA2nR9SR0VYbklx). 
 
