@@ -1,0 +1,122 @@
+
+
+Generates bingo cards (5x5, center FREE) from a keyword list
+Saves one multi-page PDF (bingo_cards_all.pdf) and individual PDFs in ./bingo_cards/
+
+Usage:
+  - Provide keywords either by listing them in the vector below OR put one keyword per line
+    in a plain text file "keywords.txt" in the same folder (the script will prefer the file).
+  - Run the script in R (RStudio or R console).
+
+```{r}
+library(grid)   # base R, used for drawing
+# No extra CRAN packages required
+
+# ----------------------------
+# USER ADJUSTABLE PARAMETERS
+# ----------------------------
+n_cards <- 40            # number of bingo cards to generate
+out_folder <- "bingo_cards"      # folder for individual PDFs
+out_pdf_all <- "bingo_cards_all.pdf"  # multipage PDF
+
+# ----------------------------
+# LOAD KEYWORDS
+# ----------------------------
+keywords <- c(
+  "fibras opticas", "sensors distribuidos", "comunicaciones globales", "red de internet",
+  "aviones", "nubes", "turbulencia", "seguridad", "meteorologia", 
+  "software", "unidades de operacion", "sostenabilidad", "Python", "grafos",
+  "optimizacion bayesiana", "desmineralizacion", "biomasa", "pretratamiento", "tiempo",
+  "piel", "patogeno", "transmision", "enfermedad", "garrapata",
+  "interacciones", "metabolitos", "antibioticos", "pigmento", "induccion",
+  "bomba", "simbolo", "blanco", "negro", "arte",
+  "America Latina", "El Caribe", "conexion", "dialogo", "comunidad",
+  "glaciacion", "Patagonia", "Chile", "roca", "edad",
+  "lava", "erupciones", "volcanologia", "edad", "magma",
+  "perturbaciones", "aprendizaje", "vehiculo autonomo", "error residual", "MPC",
+  "microbioma intestinal", "depresion", "aprendizaje automatico", "clasificador", "secuenciacion", 
+  "temperatura", "humedad", "tropico", "calor", "clima"
+  )
+
+
+# Basic checks
+if (length(keywords) < 24) {
+  stop("Need at least 24 unique keywords to fill one card (excluding FREE). Provide more keywords.")
+}
+
+# Create output folder
+if (!dir.exists(out_folder)) dir.create(out_folder)
+
+# Helper: draw one bingo card (5x5). card is a 5x5 character matrix.
+draw_bingo_card <- function(card_matrix, title = NULL) {
+  grid.newpage()
+  pushViewport(viewport(width = 0.95, height = 0.95))
+  # Title at top
+  if (!is.null(title)) {
+    grid.text(title, y = unit(0.98, "npc"), gp = gpar(fontsize = 16, fontface = "bold"))
+  }
+  # Create a 5x5 layout
+  grid_layout <- grid.layout(nrow = 5, ncol = 5, heights = unit(rep(1,5), "null"), widths = unit(rep(1,5), "null"))
+  pushViewport(viewport(layout = grid_layout, y = unit(0.46, "npc"))) # center a bit lower
+  for (r in 1:5) {
+    for (c in 1:5) {
+      # cell viewport
+      vp <- viewport(layout.pos.row = r, layout.pos.col = c)
+      pushViewport(vp)
+      # draw cell rectangle
+      grid.rect(gp = gpar(col = "black", lwd = 1))
+      # draw text
+      txt <- card_matrix[r, c]
+      # make FREE bold
+      if (!is.na(txt) && nzchar(txt)) {
+        if (tolower(txt) == "free") {
+          grid.text("FREE", gp = gpar(fontsize = 20, fontface = "bold"))
+        } else {
+          # wrap long keywords to multiple lines if needed
+          # use strwrap to break at ~12 chars per line (approx)
+          wrapped <- paste(strwrap(txt, width = 14), collapse = "\n")
+          grid.text(wrapped, gp = gpar(fontsize = 15))
+        }
+      }
+      popViewport()
+    }
+  }
+  popViewport()  # pop layout viewport
+  popViewport()
+}
+
+# Generate cards and save
+# We'll create one multipage PDF (all cards), and also individual PDFs.
+pdf(out_pdf_all, width = 8.5, height = 11)  # multipage
+on.exit(dev.off(), add = TRUE)
+
+set.seed(12345)  # reproducible; change or remove for different random seed
+
+for (i in seq_len(n_cards)) {
+  # sample 24 unique keywords for this card
+  chosen24 <- sample(keywords, size = 24, replace = FALSE)
+  # place them into 5x5 matrix leaving center (3,3) as "FREE"
+  mat <- matrix("", nrow = 5, ncol = 5)
+  idx <- 1
+  for (r in 1:5) {
+    for (c in 1:5) {
+      if (r == 3 && c == 3) {
+        mat[r, c] <- "FREE"
+      } else {
+        mat[r, c] <- chosen24[idx]
+        idx <- idx + 1
+      }
+    }
+  }
+  # Draw into multipage PDF (one page per card)
+  draw_bingo_card(mat, title = paste0("Bingo Card #", formatC(i, width = 2, flag = "0")))
+  
+  # ALSO save individual PDF
+  indiv_file <- file.path(out_folder, paste0("bingo_card_", formatC(i, width = 2, flag = "0"), ".pdf"))
+  pdf(indiv_file, width = 8.5, height = 11)
+  draw_bingo_card(mat, title = paste0("Bingo Card #", formatC(i, width = 2, flag = "0")))
+  dev.off()
+}
+
+message("Done. Multi-page PDF: '", out_pdf_all, "'. Individual cards in folder: '", out_folder, "'.")
+```
