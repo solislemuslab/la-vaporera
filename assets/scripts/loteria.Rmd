@@ -90,7 +90,8 @@ draw_bingo_card <- function(card_matrix, title = NULL) {
 pdf(out_pdf_all, width = 8.5, height = 11)  # multipage
 on.exit(dev.off(), add = TRUE)
 
-set.seed(12345)  # reproducible; change or remove for different random seed
+#set.seed(12345)  # version 1
+set.seed(6789)
 
 for (i in seq_len(n_cards)) {
   # sample 24 unique keywords for this card
