@@ -36,6 +36,7 @@ The event could not have been possible without the planning and financial suppor
 - [Wisconsin Science Festival](https://www.wisconsinsciencefest.org/)
 - [The Data Science Institute](https://dsi.wisc.edu/)
 
+La Vaporera is open to all! [UW non-discrimination statement](https://compliance.wisc.edu/eo-complaint/)
 
 # Meet the organizer
 
